@@ -1,47 +1,21 @@
-// typing ypur code
+import express from 'express';
 
-/**
-*@class
-*@description The sample class
-*/
-export default class SampleClass{
-	/**
-	*@property msg {string}
-	*@description simple msg
-	*/
-	protected msg: string;
+// set enviroment variables
+require("dotenv").config(); 
 
-	constructor(_msg: string){
-		this.msg = _msg;
-	}
+// setup stuff for express app
+import { SetupExpressApp } from './setup';
+import { RouteSetIndex } from './routes/index';
 
-	/**
-	*@method
-	*@description The sample method
-	*/
-	getMessage(){
-		if(this.msg === undefined){
-			throw new Error();
-		}
-		return this.msg;
-	}
+// create express app instance
+const app = express();
 
-	/**
-	*@method
-	*@description The sample method to put message
-	*/
-	putMessage(_msg: string){
-		this.msg = _msg;
-	}
-}
+// setup express app router
+SetupExpressApp(app);
+RouteSetIndex(app);
 
-/**
-*@function
-*@description the factory sample class
-*/
-export function factoryClass(msg: string){
-	if(msg.length < 1){
-		throw "the message can be empty";
-	}
-	return new SampleClass(msg);
-}
+// start the server by listening on port 3000
+// you can change the port by setting the PORT environment variable
+app.listen(process.env.SERVER_PORT, () => {
+    console.log('The application is listening on port 3000!');
+})

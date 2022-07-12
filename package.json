@@ -7,7 +7,8 @@
   "private": false,
   "scripts": {
     "build": "tsc -p ./",
-    "dev": "tsc -p ./ -w",
+    "dev": "nodemon",
+    "start": "ts-node ./src/index.ts",
     "test": "npm run build:test && npm run run:test",
     "build:test": "tsc -p ./tests",
     "run:test": "mocha ./.test-dist/tests"
@@ -33,10 +34,20 @@
   "devDependencies": {
     "@types/chai": "^4.3.1",
     "@types/deep-equal": "^1.0.1",
+    "@types/express": "^4.17.13",
     "@types/mocha": "^9.1.1",
+    "@types/node": "^18.0.3",
     "chai": "^4.3.0",
     "mocha": "^10.0.0",
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.8.2",
     "tslint": "^6.1.3",
-    "typescript": "^4.1.5"
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.4"
   }
 }

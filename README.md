@@ -32,7 +32,6 @@ v8.16.0
 - [Project Name](#project-name)
   - [Prerequisites](#prerequisites)
   - [Table of contents](#table-of-contents)
-  - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Usage](#usage)
     - [Serving the app](#serving-the-app)
@@ -50,10 +49,6 @@ v8.16.0
   - [Authors](#authors)
   - [License](#license)
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ## Installation
 
 **BEFORE YOU INSTALL:** please read the [prerequisites](#prerequisites)
@@ -65,19 +60,28 @@ $ git clone https://github.com/ORG/PROJECT.git
 $ cd PROJECT
 ```
 
-To install and set up the library, run:
+Apply installation command and later you can lauch dev mode.
+
 
 ```sh
-$ npm install -S myLib
-```
-
-Or if you prefer using Yarn:
-
-```sh
-$ yarn add --dev myLib
+npm install
+npm run dev
 ```
 
 ## Usage
+
+For example you can try with this endpoint:
+
+```sh
+curl --location --request POST 'http://localhost:3000/users' --header 'Content-Type: application/json'  --data-raw '{
+    "nickname": "ssss",
+    "username": "sss",
+    "password": "elmsddd455111"
+}'
+```
+
+After that POST Request you can see the record from your MongoDb database, you just should care about
+`.env` configuration file.
 
 ### Serving the app
 

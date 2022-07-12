@@ -2,7 +2,7 @@ import express from 'express';
 import { crud } from '../helpers/crud';
 
 // import the models
-import {User} from '../models/user.model';
+import { User } from '../models/user.model';
 import { Product } from '../models/product.model';
 
 // setup express app router controllers
